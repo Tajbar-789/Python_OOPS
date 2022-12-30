@@ -206,8 +206,20 @@ print(s1+s2)
 
 Q16. What is the most popular form of operator overloading?
 
-ans- 
+ans- The most popular form of operator overloading in Python is to define special methods in a class that have the same name as the operator you want to overload. For example: to overload the '+' operator, you would define a method named 'add()'. To overload the '-' operator, you would define a method named 'sub()', and so on. Eg: 
 
+```
+class MyClass: 
+    def __init__(self, value): 
+        self.value = value
+
+    def __add__(self, other): 
+        return self.value + other.value
+
+a1=MyClass(20)
+b1=MyClass(30)
+print(a1+b1)
+```
 Q17. What are the two most important concepts to grasp in order to comprehend Python OOP code?
 
 ans - The two important concepts of OOPS are inheritence and polymorphism that gives python the power of formulate the real world situations in code . With Inheritance the python code enhances the reusability of the code and with polymorphism we get different functionality with the same function name . 
@@ -373,9 +385,21 @@ def intro(**data):
 intro(Firstname="Sita", Lastname="Sharma", Age=22, Phone=1234567890)
 intro(Firstname="John", Lastname="Wood", Email="johnwood@nomail.com", Country="Wa
 ```
+
 Q29. How can I pass optional or keyword parameters from one function to another?
 
+ans-  In Python, you can pass optional or keyword parameters from one function to another by using the * and ** syntax to unpack the arguments and keyword arguments. suppose you have a function func1() that takes two optional arguments and one keyword argument, and you want to call another function func2() with the same arguments and keyword arguments. 
+```
+def func1(arg1, arg2, kwarg1=None):
 
+    func2(*(1, 2), **{'kwarg1': 3})
+    
+def func2(arg1, arg2, kwarg1=None):
+    print(arg1,arg2)
+    
+func1(1, 2, kwarg1=3)
+
+```
 Q30. What are Lambda Functions?
 
 ans- Lambda functions are anonymous functions without a name that are used to do a simple operation .It contains a list of argumnets and returns a value. for e.g 
