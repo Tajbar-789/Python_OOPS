@@ -4,7 +4,7 @@ ans- The purpose of Object oriented programming is to create objects which are r
 
 Q2. Where does an inheritance search look for an attribute?
 
-ans-
+ans- The inheritance search for an attribute starts with the object's own attributes then followed by current class attributes and then the search goes to the parent classes left to right .
 
 Q3. How do you distinguish between a class object and an instance object?
 
@@ -214,19 +214,62 @@ ans - The two important concepts of OOPS are inheritence and polymorphism that g
 
 Q18. Describe three applications for exception processing.
 
-ans - 1. Exception processing helps in controlling the flow of the program. 
+ans - 1. Using exception handling to validate the input of the user .for e.g we can validate if the user has given in the input in correct form of not .
+      2. while accessing resources and files try except blocks can help us to prevent any exceptions from being raised in case of the connection is not established or a file is not found.
+      3. using exception handling we can safely access the database through our python code without running into any exceptions due to wrong passwords or port numbers .
 
 Q19. What happens if you don't do something extra to treat an exception?
 
-ans - If we don't treat an exception using the except block the program will stop abruptly without any reason making it hard to rectify the problem.
+ans - If we don't treat an exception using the except block the program can stop abruptly without any reason if the exception gets raised ,making it hard to rectify the problem.
 
 Q20. What are your options for recovering from an exception in your script?
 
-ans - Exceptions are unexpected events that disrupt the normal control flow of your script.To prevent the program from stopping abruptly one needs to consider every possible origin of exception and handle them properly so it can be rectified with proper care .
+ans - Exceptions are unexpected events that disrupt the normal control flow of your script.To prevent the program from stopping abruptly one needs to consider every possible origin of exception and handle them properly so it can be rectified with proper care with the help of try and except block which can be followed by a finally or else block.
 
 Q21. Describe two methods for triggering exceptions in your script.
 
+ans- The two methods for triggering exception are -
+    1.raise method
+       raise Keyword is used to raise exceptions or errors. The raise keyword raises an error and stops the control flow of the program.
+       ```
+    s = 'apple'
+
+    try:
+        num = int(s)
+    except ValueError:
+	    raise ValueError("String can't be changed into integer")
+
+       ```      
+    2.assert method
+        assert statement is used to continue the execute if the given condition evaluates to True. If the assert condition evaluates to False, then it raises the AssertionError exception with the specified error message.
+    ```
+    x = 0
+    assert x > 0, 'Only positive numbers are allowed'
+    print('x is a positive number.')
+    ```
+ 
+
 Q22. Identify two methods for specifying actions to be executed at termination time, regardless of whether or not an exception exists.
+
+ans-There are two methods for specifying actions to be executed at termination time in Python, regardless of whether or not an exception exists:
+
+    1.Using finally block:  This block of code can be used in conjunction with a try-except block, and it will be executed regardless of whether an exception is raised or not. 
+
+    ```
+    a=10
+    b=int(input())
+    try:
+        c=a/b
+    except :
+        print("Dividing by 0")
+    finally:
+        print("This statement will run no matter what")
+    ```
+
+
+    2.Using with statement: This statement allows you to define a context for a block of code, and specify actions to be taken when the block of code starts and when it ends. 
+    For example: with open("file.txt") as f:
+
 
 Q23. What is the purpose of the try statement?
 
@@ -234,8 +277,7 @@ ans-The try block lets you test a block of code for errors or exceptions.If ther
 
 ```
 def divide(x, y):
-	try:
-		
+	try:	
 		result = x // y
 		print("Yeah ! Your answer is :", result)
 	except ZeroDivisionError:
@@ -247,6 +289,26 @@ divide(3, 0)
 ```
 
 Q24. What are the two most popular try statement variations?
+
+ans - The two most popular variations of the try statement in Python are the try-except block and the try-finally block.
+
+1.The try-except block: The try-except block is the most commonly used variation of the try statement. It consists of a try block, which is the block of code that you want to test for errors, and one or more except blocks, which specify how to handle any errors that are raised in the try block. 
+
+```
+try :
+    a=10/0
+except:
+    print("divides by 0")
+```
+2.The try-finally block: The try-finally block is another variation of the try statement. It consists of a try block, which is the block of code that you want to test for errors, and a finally block, which specifies code that will be executed regardless of whether an exception is raised or not.
+```
+try :
+    a=10/0
+except:
+    print("divides by 0")
+finally:
+    print("this runs no matter what ")
+```
 
 Q25. What is the purpose of the raise statement?
 
